@@ -15,6 +15,7 @@ Enterprise data engineering portfolio focused on
 **banking, Global Markets, reconciliations, and executive reporting**.
 
 ---
+## Projects
 
 ## 🏦 RMB Global Markets Data Platform
 Enterprise-grade reconciliation and settlement analytics solution supporting
