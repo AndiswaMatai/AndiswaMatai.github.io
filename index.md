@@ -41,7 +41,8 @@ Cloud-native data engineering solution built on GCP.
 - Executive analytics
 
 ➡️ **View Case Study**  
-https://github.com/AndiswaMatai/Ison-Xperiences
+[ison.md](./ison.md)
+
 
 ---
 
