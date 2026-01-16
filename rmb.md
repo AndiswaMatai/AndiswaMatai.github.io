@@ -27,6 +27,18 @@ across FX, Bonds, and Money Markets.
 - Executive and operational reporting
 
 ---
+## 🛡️ Data Control Framework
+
+To ensure audit readiness and operational reliability, the solution implements the following controls:
+
+| Control | Purpose | Business Outcome |
+|------|------|------|
+| Record count checks | Ensure data completeness | Prevents missing trades |
+| Balance validations | Validate monetary accuracy | Improves audit confidence |
+| Snapshot comparisons | Detect reconciliation breaks | Early operational risk detection |
+| Aging logic | Track unresolved items | Settlement risk visibility |
+
+---
 
 ## Technology
 - SQL & Python ETL
