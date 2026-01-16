@@ -43,10 +43,13 @@ Enterprise data teams required scalable, secure, and cost-efficient cloud data p
 
 ---
 
+## 📂 Solution Artifacts
+
 -![Ison ETL](./ison_etl.png)
 -![Ison Dashboard](./ison_dashboard.png)
 
 ---
+
 ## 🔮 What I Would Improve Next
 - Introduce event-driven ingestion for near-real-time analytics
 - Standardise infrastructure using Infrastructure as Code (Terraform)
