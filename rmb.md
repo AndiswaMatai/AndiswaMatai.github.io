@@ -27,5 +27,5 @@ across FX, Bonds, and Money Markets.
 - Data governance & controls
 
 - ![RMB ETL](./rmb_etl.png)
-![RMB Dashboard](./rmb_dashboard.png)
+- ![RMB Dashboard](./rmb_dashboard.png)
 
