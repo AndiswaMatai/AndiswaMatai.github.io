@@ -40,12 +40,18 @@ To ensure audit readiness and operational reliability, the solution implements t
 
 ---
 
-## Technology
-- SQL & Python ETL
-- Power BI
-- GitHub Actions
-- Data governance & controls
+## 🛠️ Technology
+- SQL & Python-based ETL pipelines
+- Enterprise data platform (cloud-native)
+- Power BI for operational and executive reporting
+- CI/CD automation with GitHub Actions
+- Governance-aligned data controls
 
-- ![RMB ETL](./rmb_ETL.png.png)
-- ![RMB Dashboard](./rmb_dashboard.png)
+---
 
+## 📂 Solution Artifacts
+
+![RMB ETL Architecture](./rmb_ETL.png)
+![RMB Dashboard](./rmb_dashboard.png)
+
+---
