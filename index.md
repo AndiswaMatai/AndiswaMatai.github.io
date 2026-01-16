@@ -59,7 +59,7 @@ reconciliations, and executive reporting across enterprise environments.
 ## Contact
 - GitHub: https://github.com/AndiswaMatai
 - LinkedIn: https://www.linkedin.com/in/andiswa-matai/
-- [Download CV](./docs/Andiswa_Matai_CV.pdf)
+- [Download CV](./Andiswa_Matai_CV.pdf)
 
 
 
