@@ -28,8 +28,7 @@ Global Markets operations in a Tier-1 banking environment.
 
 
 ➡️ **View Case Study**  
-[➡️ View Case Study: RMB Global Markets](rmb)
-
+[rmb.md](./rmb.md)
 
 ---
 
