@@ -23,3 +23,5 @@ Multiple SAP and operational datasets, manual reporting delays, lack of automate
 - Power BI / Looker
 - GitHub Actions & CI/CD
 
+-![Ison ETL](./ison_etl.png)
+![Ison Dashboard](./ison_dashbaord.png)
