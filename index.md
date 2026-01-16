@@ -5,56 +5,66 @@
 [![Governance](https://img.shields.io/badge/Governance-Audit%20%7C%20Controls-lightgrey)](./rmb.md)
 
 
-[Projects](#projects) | [About](#about) | [Contact](#contact)
+# Andiswa Matai — Senior Data Engineer Portfolio
+
+[Home](index.md) | [RMB Case Study](rmb.html) | [Ison Case Study](ison.html)
 
 ---
 
-# 👋 Andiswa Matai
-### Senior Data Engineer | Analytics Engineer | BI Specialist
-
-Enterprise data engineering portfolio focused on  
-**banking, Global Markets, reconciliations, and executive reporting**.
-
----
-## Projects
-
-## 🏦 RMB Global Markets Data Platform
-Enterprise-grade reconciliation and settlement analytics solution supporting
-Global Markets operations in a Tier-1 banking environment.
-
-- Automated T+0 reconciliations
-- Settlement risk & penalty monitoring
-- Audit-ready datasets
-
-[➡️ View Case Study: RMB Global Markets](rmb.html)
+## 👋 About Me
+I am a **Senior Data Engineer** with experience delivering **enterprise-scale, cloud-native data platforms** in regulated financial environments.  
+Specialising in **SQL, Python, ETL, Power BI, GCP, AWS, and Azure**, I build automated data pipelines, reconciliations, and executive analytics for **Global Markets operations**.
 
 ---
 
-## 🌐 Ison Xperiences — Cloud Data Engineering
-Cloud-native data engineering solution built on GCP.
-
-- Python & SQL ETL pipelines
-- CI/CD automation
-- Executive analytics
-
-[➡️ View Case Study: Ison Xperiences](ison.html)
+## 🔹 Skills & Technologies
+- **Languages:** SQL, Python  
+- **Cloud Platforms:** GCP, AWS, Azure  
+- **ETL & Orchestration:** Airflow, Cloud Composer, Informatica, Dataflow, ADF  
+- **BI & Analytics:** Power BI, Looker, Data Studio  
+- **CI/CD & Automation:** GitHub Actions  
+- **Data Engineering:** Data modeling, governance, auditing, reconciliation frameworks  
 
 ---
 
-## 🛠 Core Skills
-- Data Engineering: SQL, Python, ETL
-- BI & Analytics: Power BI
-- Cloud: GCP, AWS, Azure
-- CI/CD & Data Governance
+## 📚 Projects
 
-- ## About
-Senior Data Engineer with experience in banking, Global Markets operations,
-reconciliations, and executive reporting across enterprise environments.
+### 🏦 RMB Global Markets Data Platform
+Enterprise-grade **reconciliation and settlement analytics solution** supporting Global Markets operations in a Tier-1 banking environment.
 
-## Contact
-- GitHub: https://github.com/AndiswaMatai
-- LinkedIn: https://www.linkedin.com/in/andiswa-matai/
-- [Download CV](./docs/Andiswa_Matai_CV.pdf)
+- Automated **T+0 reconciliations**, reducing manual effort  
+- Settlement **risk & penalty monitoring** with audit-ready controls  
+- **Executive & operational reporting** datasets  
+
+[➡️ View Case Study: RMB](rmb.html)
+
+![RMB ETL](rmb_ETL.png.png)
+![RMB Dashboard](rmb_dashboard.png)
+
+---
+
+### 🌐 Ison Xperiences — Cloud Data Engineering
+Cloud-native **data engineering solution** built on GCP, AWS, and Azure.
+
+- Python & SQL **ETL pipelines** for structured and operational data  
+- **CI/CD automation** with Airflow & GitHub Actions  
+- **Executive dashboards** in Power BI and Looker  
+
+[➡️ View Case Study: Ison](ison.html)
+
+![Ison ETL](ison_etl.png)
+![Ison Dashboard](ison_dashboard.png)
+
+---
+
+## 📄 Optional: Download CV
+[Download CV (PDF)](docs/Andiswa_Matai_CV.pdf)
+
+---
+
+## 🔗 Connect with Me
+- [GitHub](https://github.com/AndiswaMatai)  
+- [LinkedIn](https://www.linkedin.com/in/andiswamatai/)
 
 
 
