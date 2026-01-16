@@ -25,8 +25,10 @@ Global Markets operations in a Tier-1 banking environment.
 - Settlement risk & penalty monitoring
 - Audit-ready datasets
 
+
 ➡️ **View Case Study**  
-https://github.com/AndiswaMatai/RMB-Global-Markets-Data-Platform
+[rmb.md](./rmb.md)
+
 
 ---
 
