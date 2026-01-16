@@ -51,7 +51,7 @@ To ensure audit readiness and operational reliability, the solution implements t
 
 ## 📂 Solution Artifacts
 
-![RMB ETL Architecture](./rmb_ETL.png)
+![RMB ETL Architecture](./rmb_ETL.png.png)
 ![RMB Dashboard](./rmb_dashboard.png)
 
 ---
