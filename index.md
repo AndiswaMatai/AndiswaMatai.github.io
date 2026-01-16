@@ -26,7 +26,7 @@ Global Markets operations in a Tier-1 banking environment.
 - Settlement risk & penalty monitoring
 - Audit-ready datasets
 
-[➡️ View Case Study: RMB Global Markets](rmb)
+[➡️ View Case Study: RMB Global Markets](rmb.html)
 
 ---
 
@@ -37,7 +37,7 @@ Cloud-native data engineering solution built on GCP.
 - CI/CD automation
 - Executive analytics
 
-[➡️ View Case Study: Ison Xperiences](ison)
+[➡️ View Case Study: Ison Xperiences](ison.html)
 
 ---
 
