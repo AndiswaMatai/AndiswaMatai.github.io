@@ -26,6 +26,6 @@ across FX, Bonds, and Money Markets.
 - GitHub Actions
 - Data governance & controls
 
-- ![RMB ETL](./images/rmb_etl.png)
-![RMB Dashboard](./images/rmb_dashboard.png)
+- ![RMB ETL](./rmb_etl.png)
+![RMB Dashboard](./rmb_dashboard.png)
 
