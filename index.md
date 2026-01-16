@@ -4,7 +4,9 @@
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-black)](#)
 [![Governance](https://img.shields.io/badge/Governance-Audit%20%7C%20Controls-lightgrey)](#)
 
+[Projects](#projects) | [About](#about) | [Contact](#contact)
 
+---
 
 # 👋 Andiswa Matai
 ### Senior Data Engineer | Analytics Engineer | BI Specialist
