@@ -5,6 +5,14 @@ Enterprise-scale data engineering and analytics solution supporting
 Global Markets operations in a Tier-1 banking environment.
 
 ---
+## 👥 Intended Audience
+This case study is designed for:
+- Global Markets Operations teams
+- Risk & Compliance stakeholders
+- Finance & Treasury
+- Senior Data Engineers and Analytics Engineers
+
+---
 
 ## Business Problem
 Manual reconciliations, delayed reporting, and settlement risk exposure
