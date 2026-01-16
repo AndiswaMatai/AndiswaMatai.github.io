@@ -48,4 +48,13 @@ https://github.com/AndiswaMatai/Ison-Xperiences
 - Cloud: GCP, AWS, Azure
 - CI/CD & Data Governance
 
+- ## About
+Senior Data Engineer with experience in banking, Global Markets operations,
+reconciliations, and executive reporting across enterprise environments.
+
+## Contact
+- GitHub: https://github.com/AndiswaMatai
+- LinkedIn: https://www.linkedin.com/in/andiswa-matai/
+
+
 
