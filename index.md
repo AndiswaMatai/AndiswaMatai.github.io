@@ -1,8 +1,9 @@
-[![SQL](https://img.shields.io/badge/SQL-Enterprise%20Data-orange)](#)
-[![Python](https://img.shields.io/badge/Python-ETL-green)](#)
-[![Power BI](https://img.shields.io/badge/BI-Power%20BI-blue)](#)
-[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-black)](#)
-[![Governance](https://img.shields.io/badge/Governance-Audit%20%7C%20Controls-lightgrey)](#)
+[![SQL](https://img.shields.io/badge/SQL-Enterprise%20Data-orange)](./rmb.md)
+[![Python](https://img.shields.io/badge/Python-ETL-green)](./rmb.md)
+[![Power BI](https://img.shields.io/badge/BI-Power%20BI-blue)](./rmb.md)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-black)](./rmb.md)
+[![Governance](https://img.shields.io/badge/Governance-Audit%20%7C%20Controls-lightgrey)](./rmb.md)
+
 
 [Projects](#projects) | [About](#about) | [Contact](#contact)
 
