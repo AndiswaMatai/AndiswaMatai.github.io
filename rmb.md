@@ -49,9 +49,25 @@ To ensure audit readiness and operational reliability, the solution implements t
 
 ---
 
+## 🚀 Business Outcomes
+- Reduced manual reconciliation effort by approximately 50–60%
+- Enabled same-day (T+0) operational reporting
+- Improved audit readiness through automated data controls
+- Delivered a reusable reconciliation framework across asset classes
+
+---
+
 ## 📂 Solution Artifacts
 
 ![RMB ETL Architecture](./rmb_ETL.png.png)
 ![RMB Dashboard](./rmb_dashboard.png)
+
+---
+
+## 🔮 What I Would Improve Next
+- Introduce near-real-time ingestion for selected asset classes
+- Implement automated anomaly detection on reconciliation breaks
+- Add SLA-based alerts for late settlements
+- Integrate workflow tooling for operational break resolution
 
 ---
