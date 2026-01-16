@@ -3,7 +3,7 @@
 [![Power BI](https://img.shields.io/badge/BI-Power%20BI-blue)](#)
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-black)](#)
 [![Governance](https://img.shields.io/badge/Governance-Audit%20%7C%20Controls-lightgrey)](#)
-Add homepage badges
+
 
 
 # 👋 Andiswa Matai
@@ -45,5 +45,4 @@ https://github.com/AndiswaMatai/Ison-Xperiences
 - Cloud: GCP, AWS, Azure
 - CI/CD & Data Governance
 
-- Polish homepage content
 
