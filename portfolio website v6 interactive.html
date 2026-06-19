@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Andiswa Matai · Senior Data Engineer</title>
+<style>
+  :root {
+    --navy: #1F3864;
+    --blue: #2E75B6;
+    --accent: #3d9be9;
+    --light-blue: #EDF2F8;
+    --dark: #1a1a2e;
+    --text: #2d2d2d;
+    --muted: #5a6272;
+    --border: #dde3ee;
+    --white: #ffffff;
+    --card-bg: #f8fafd;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.65;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 58px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  .nav-brand { color: #fff; font-weight: 700; font-size: 1rem; letter-spacing: .02em; }
+  .nav-links { display: flex; gap: 1.8rem; }
+  .nav-links a {
+    color: rgba(255,255,255,.8); text-decoration: none; font-size: .875rem;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: #fff; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2c4a8a 60%, var(--blue) 100%);
+    color: white; padding: 5.5rem 2.5rem 4.5rem;
+    text-align: center;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .4rem; }
+  .hero .subtitle {
+    font-size: clamp(.95rem, 2.5vw, 1.15rem); color: rgba(255,255,255,.82);
+    max-width: 680px; margin: 0 auto 1.5rem;
+  }
+  .tag-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-bottom: 2rem; }
+  .tag {
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+    border-radius: 99px; padding: .3rem .9rem; font-size: .8rem; font-weight: 600;
+    color: #fff;
+  }
+  .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: .65rem 1.6rem; border-radius: 8px;
+    font-weight: 600; font-size: .9rem; text-decoration: none; transition: all .2s;
+  }
+  .btn-primary { background: #fff; color: var(--navy); }
+  .btn-primary:hover { background: var(--light-blue); }
+  .btn-outline { border: 2px solid rgba(255,255,255,.6); color: #fff; }
+  .btn-outline:hover { background: rgba(255,255,255,.12); }
+
+  /* SECTIONS */
+  section { padding: 4rem 2.5rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+  .section-label {
+    font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+    color: var(--blue); text-transform: uppercase; margin-bottom: .5rem;
+  }
+  .section-title {
+    font-size: clamp(1.4rem, 3vw, 1.85rem); font-weight: 800;
+    color: var(--navy); margin-bottom: 2.5rem;
+    padding-bottom: .75rem; border-bottom: 3px solid var(--blue);
+    display: inline-block;
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem;
+    margin-bottom: 3rem;
+  }
+  .stat-card {
+    background: var(--light-blue); border-radius: 12px;
+    padding: 1.5rem 1.2rem; text-align: center;
+    border: 1px solid var(--border);
+  }
+  .stat-number { font-size: 2rem; font-weight: 800; color: var(--blue); line-height: 1; }
+  .stat-label { font-size: .8rem; color: var(--muted); margin-top: .35rem; font-weight: 500; }
+
+  /* PROJECTS */
+  .filter-bar { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
+  .filter-btn {
+    background: var(--white); border: 1.5px solid var(--border); color: var(--muted);
+    border-radius: 99px; padding: .45rem 1.1rem; font-size: .82rem; font-weight: 600;
+    cursor: pointer; transition: all .2s; font-family: inherit;
+  }
+  .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .filter-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .project-card.hidden { display: none; }
+  .empty-state {
+    grid-column: 1 / -1; text-align: center; padding: 3rem 1rem;
+    color: var(--muted); font-size: .9rem;
+  }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.6rem;
+    transition: transform .2s, box-shadow .2s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(31,56,100,.12); }
+  .project-sector {
+    display: inline-block; padding: .25rem .75rem;
+    border-radius: 99px; font-size: .73rem; font-weight: 700;
+    margin-bottom: .9rem; letter-spacing: .04em;
+  }
+  .sector-banking  { background: #e6eefa; color: #1a4b8c; }
+  .sector-fintech  { background: #e6f9f0; color: #0f7a4b; }
+  .sector-ads      { background: #fff4e6; color: #8a4a00; }
+  .sector-fleet    { background: #f3e8ff; color: #5b2b99; }
+  .sector-gov      { background: #ffe6e6; color: #8a0000; }
+
+  .project-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
+  .project-card p { font-size: .875rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+  .tech-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.1rem; }
+  .tech-chip {
+    background: var(--light-blue); color: var(--blue);
+    border-radius: 6px; padding: .18rem .55rem; font-size: .72rem; font-weight: 600;
+  }
+  .card-footer { display: flex; gap: .8rem; flex-wrap: wrap; }
+  .card-link {
+    display: inline-flex; align-items: center; gap: .35rem;
+    font-size: .82rem; font-weight: 600; color: var(--blue);
+    text-decoration: none; transition: color .2s;
+  }
+  .card-link:hover { color: var(--navy); }
+  .badge-ci {
+    display: inline-flex; align-items: center; gap: .3rem;
+    background: #e6f9f0; color: #0f7a4b;
+    border-radius: 6px; padding: .18rem .55rem; font-size: .72rem; font-weight: 700;
+  }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+  .skill-group {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.3rem 1.4rem;
+  }
+  .skill-group-title { font-weight: 700; color: var(--navy); font-size: .9rem; margin-bottom: .7rem; }
+  .skill-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .skill-chip {
+    background: var(--light-blue); color: var(--blue);
+    border-radius: 6px; padding: .22rem .6rem; font-size: .78rem; font-weight: 500;
+  }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 1.8rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 6px; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item { position: relative; margin-bottom: 2rem; }
+  .timeline-dot {
+    position: absolute; left: -1.8rem; top: 5px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--blue); border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+  .tl-company { font-weight: 700; color: var(--navy); font-size: .97rem; }
+  .tl-role { font-size: .87rem; color: var(--blue); font-weight: 600; }
+  .tl-date { font-size: .78rem; color: var(--muted); margin-bottom: .35rem; }
+  .tl-desc { font-size: .85rem; color: var(--muted); }
+
+  /* CERTIFICATIONS */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+  .cert-card {
+    background: var(--light-blue); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem 1.2rem;
+  }
+  .cert-name { font-weight: 600; font-size: .88rem; color: var(--navy); margin-bottom: .25rem; }
+  .cert-year { font-size: .78rem; color: var(--muted); }
+
+  /* CONTACT */
+  .contact-section { background: var(--navy); color: #fff; text-align: center; }
+  .contact-section .section-title { color: #fff; border-color: rgba(255,255,255,.4); }
+  .contact-section .section-label { color: rgba(255,255,255,.6); }
+  .contact-section p { color: rgba(255,255,255,.75); margin-bottom: 2rem; font-size: .95rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25);
+    color: #fff; text-decoration: none; padding: .6rem 1.3rem;
+    border-radius: 8px; font-size: .88rem; font-weight: 600; transition: background .2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,.22); }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 1.5rem; font-size: .8rem; color: var(--muted); background: #f4f6fa; }
+  /* LIVE DEMO */
+  .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .demo-card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.6rem; display: flex; flex-direction: column;
+  }
+  .demo-card h3 { font-size: .98rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
+  .demo-card .demo-desc { font-size: .8rem; color: var(--muted); margin-bottom: 1.1rem; }
+  .demo-field { margin-bottom: 1rem; }
+  .demo-field label {
+    display: flex; justify-content: space-between; font-size: .8rem; font-weight: 600;
+    color: var(--navy); margin-bottom: .4rem;
+  }
+  .demo-field label .demo-value { color: var(--blue); font-weight: 700; }
+  .demo-field input[type="range"] { width: 100%; accent-color: var(--blue); cursor: pointer; }
+  .demo-field input[type="number"] {
+    width: 100%; padding: .5rem .7rem; border: 1.5px solid var(--border); border-radius: 8px;
+    font-size: .85rem; font-family: inherit; color: var(--dark);
+  }
+  .demo-select {
+    width: 100%; padding: .55rem .7rem; border: 1.5px solid var(--border); border-radius: 8px;
+    font-size: .82rem; font-family: inherit; color: var(--dark); background: var(--white);
+    margin-bottom: .9rem;
+  }
+  .demo-btn {
+    background: var(--navy); color: #fff; border: none; border-radius: 8px;
+    padding: .6rem 1rem; font-size: .85rem; font-weight: 700; cursor: pointer;
+    transition: background .2s; font-family: inherit; margin-bottom: 1rem;
+  }
+  .demo-btn:hover { background: var(--blue); }
+  .demo-result {
+    background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+    padding: .9rem 1rem; font-size: .85rem; margin-top: auto;
+  }
+  .demo-result-row {
+    display: flex; justify-content: space-between; padding: .25rem 0;
+    border-bottom: 1px dashed var(--border); font-size: .82rem;
+  }
+  .demo-result-row:last-child { border-bottom: none; font-weight: 700; color: var(--navy); }
+  .demo-result-row span:last-child { font-weight: 600; color: var(--dark); }
+  .demo-bar-track { background: var(--border); border-radius: 99px; height: 10px; overflow: hidden; margin-top: .5rem; }
+  .demo-bar-fill { background: var(--blue); height: 100%; border-radius: 99px; transition: width .4s ease; width: 0%; }
+  .validation-result {
+    border-radius: 10px; padding: .8rem 1rem; font-size: .82rem; margin-top: .5rem;
+    display: none; line-height: 1.5;
+  }
+  .validation-pass { background: #e6f9f0; color: #0f7a4b; border: 1px solid #b8ecd2; }
+  .validation-fail { background: #ffe9e9; color: #a31515; border: 1px solid #f5b8b8; }
+
+  /* CHARTS */
+  .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+  .chart-card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.5rem; opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease;
+  }
+  .chart-card.in-view { opacity: 1; transform: translateY(0); }
+  .chart-card h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: .9rem; }
+  .chart-card canvas { max-height: 260px; }
+  .chart-source { font-size: .72rem; color: var(--muted); margin-top: .7rem; font-style: italic; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Andiswa Matai</span>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#demo">Live Demo</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Andiswa Nonhlanhla Matai</h1>
+    <p class="subtitle">Senior Data Engineer with 9+ years building enterprise Azure data platforms across banking, fintech, capital markets, healthcare, ERP migration, advertising, and fleet/logistics — with hands-on work in Microsoft Fabric lakehouse architecture.</p>
+    <div class="tag-row">
+      <span class="tag">Azure · Synapse · Databricks</span>
+      <span class="tag">Microsoft Fabric · Lakehouse</span>
+      <span class="tag">SQL Server · SSIS · dbt</span>
+      <span class="tag">SAP ECC · Migration</span>
+      <span class="tag">Healthcare · FHIR</span>
+      <span class="tag">Python · SQL · Scala</span>
+      <span class="tag">Power BI · CI/CD</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:andiswacebekhulu1@gmail.com" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section style="background: var(--light-blue); padding: 2.5rem 2.5rem;">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">9+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat-card"><div class="stat-number">35%</div><div class="stat-label">Reduced Audit Prep Time</div></div>
+      <div class="stat-card"><div class="stat-number">2h</div><div class="stat-label">Reporting turnaround (was 2 days)</div></div>
+      <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">Portfolio Projects</div></div>
+      <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Sectors Delivered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <div class="section-title">GitHub Projects</div>
+
+    <div class="filter-bar" role="tablist" aria-label="Filter projects by sector">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="banking">🏦 Banking</button>
+      <button class="filter-btn" data-filter="fintech">💳 Fintech</button>
+      <button class="filter-btn" data-filter="healthcare">🏥 Healthcare</button>
+      <button class="filter-btn" data-filter="advertising">📣 Advertising</button>
+      <button class="filter-btn" data-filter="fleet">🚛 Fleet</button>
+      <button class="filter-btn" data-filter="erp">☁️ ERP Migration</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- Project 1 -->
+      <div class="project-card" data-sector="banking">
+        <span class="project-sector sector-banking">🏦 Banking · Fintech</span>
+        <h3>Finance Reconciliation Pipeline</h3>
+        <p>Source → sub-ledger → GL reconciliation with idempotent ingestion, Type 2 SCD dimension, embedded data quality controls, and audit-ready control evidence. Catches missing postings, amount breaks, timing breaks, and GL variances.</p>
+        <div class="tech-chips">
+          <span class="tech-chip">Python</span><span class="tech-chip">SQLite/SQL Server</span>
+          <span class="tech-chip">SCD Type 2</span><span class="tech-chip">Data Quality</span>
+          <span class="tech-chip">CI/CD</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/AndiswaMatai/finance-reconciliation-pipeline" target="_blank" class="card-link" target="_blank">
+            ⬡ View on GitHub
+          </a>
+          <span class="badge-ci">✓ CI Passing</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card" data-sector="fintech">
+        <span class="project-sector sector-fintech">💳 Fintech</span>
+        <h3>Transaction Monitoring Pipeline</h3>
+        <p>Event-driven pipeline with Kafka-style at-least-once delivery semantics, idempotent deduplication store, and a pluggable fraud rules engine (large amount detection, velocity/burst patterns). Processes 500 events, catches all duplicate deliveries.</p>
+        <div class="tech-chips">
+          <span class="tech-chip">Python</span><span class="tech-chip">Event-Driven</span>
+          <span class="tech-chip">Idempotency</span><span class="tech-chip">Fraud Detection</span>
+          <span class="tech-chip">CI/CD</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/AndiswaMatai/transaction-monitoring-pipeline" class="card-link" target="_blank">
+            ⬡ View on GitHub
+          </a>
+          <span class="badge-ci">✓ CI Passing</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card" data-sector="advertising">
+        <span class="project-sector sector-ads">📣 Advertising</span>
+        <h3>Marketing Analytics Pipeline</h3>
+        <p>Unifies Google Ads, GA360, and Salesforce on (date, campaign_id) and computes CTR, CPA, ROAS, conversion rate, and churn rate. Mirrors the integration that cut reporting turnaround from 2 days to under 2 hours at Arena Holdings.</p>
+        <div class="tech-chips">
+          <span class="tech-chip">Python</span><span class="tech-chip">pandas</span>
+          <span class="tech-chip">KPI Design</span><span class="tech-chip">Multi-source Join</span>
+          <span class="tech-chip">matplotlib</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/AndiswaMatai/marketing-analytics-pipeline" class="card-link" target="_blank">
+            ⬡ View on GitHub
+          </a>
+          <span class="badge-ci">✓ CI Passing</span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card" data-sector="fleet">
+        <span class="project-sector sector-fleet">🚛 Fleet / Logistics</span>
+        <h3>Fleet Operations Analytics</h3>
+        <p>Telematics and operational analytics across 5 vehicles: fuel efficiency (km/L), utilisation rate, harsh braking events per 100 km, and maintenance compliance — with an automated alert layer flagging vehicles needing attention.</p>
+        <div class="tech-chips">
+          <span class="tech-chip">Python</span><span class="tech-chip">pandas</span>
+          <span class="tech-chip">Telematics</span><span class="tech-chip">Fleet KPIs</span>
+          <span class="tech-chip">matplotlib</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/AndiswaMatai/fleet-operations-analytics" class="card-link" target="_blank">
+            ⬡ View on GitHub
+          </a>
+          <span class="badge-ci">✓ CI Passing</span>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card" data-sector="fintech">
+        <span class="project-sector sector-fintech">🧱 Debt Collection · Big Data</span>
+        <h3>Debt Collection Lakehouse</h3>
+        <p>Microsoft Fabric-pattern medallion pipeline for a debt collection operation (modelled on Ison Xperiences) — 1.15M+ rows of accounts, PTP agreements, payments, and settlements, processed end-to-end in under 30 seconds with chunked, memory-flat big data techniques.</p>
+        <div class="tech-chips">
+          <span class="tech-chip">Microsoft Fabric</span><span class="tech-chip">Medallion Architecture</span>
+          <span class="tech-chip">1.1M+ rows</span><span class="tech-chip">Chunked Processing</span>
+          <span class="tech-chip">PTP / Collections KPIs</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/AndiswaMatai/debt-collection-lakehouse" class="card-link" target="_blank">
+            ⬡ View on GitHub
+          </a>
+          <span class="badge-ci">✓ CI Passing</span>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card" data-sector="healthcare">
+        <span class="project-sector sector-gov">🏥 Healthcare · Big Data</span>
+        <h3>Healthcare SAP IS-H → Azure Migration</h3>
+        <p>Large-scale migration of SAP IS-H hospital data (patient cases, billing, pharmacy/material consumption) to an Azure cloud schema — 1.13M+ rows processed with chunked extract-validate-transform logic and real clinical/financial validation rules.</p>
+        <div class="tech-chips">
+          <span class="tech-chip">SAP IS-H</span><span class="tech-chip">Healthcare</span>
+          <span class="tech-chip">1.1M+ rows</span><span class="tech-chip">Data Migration</span>
+          <span class="tech-chip">Azure Synapse</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/AndiswaMatai/healthcare-sap-cloud-migration" class="card-link" target="_blank">
+            ⬡ View on GitHub
+          </a>
+          <span class="badge-ci">✓ CI Passing</span>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <div class="project-card" data-sector="erp">
+        <span class="project-sector sector-banking">☁️ ERP Migration</span>
+        <h3>SAP ECC → Azure Migration</h3>
+        <p>Three-phase Extract → Validate → Transform migration pipeline for SAP ECC tables (GL accounts, vendors, purchase orders, journal entries) — with migration validation rules, rejection logging, and SAP-to-Azure field mapping.</p>
+        <div class="tech-chips">
+          <span class="tech-chip">Python</span><span class="tech-chip">SAP ECC</span>
+          <span class="tech-chip">Data Migration</span><span class="tech-chip">Validation Rules</span>
+          <span class="tech-chip">Azure SQL</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/AndiswaMatai/sap-azure-migration" class="card-link" target="_blank">
+            ⬡ View on GitHub
+          </a>
+          <span class="badge-ci">✓ CI Passing</span>
+        </div>
+      </div>
+
+      <div class="empty-state" id="emptyState" style="display:none;">No projects match this filter yet — try "All Projects".</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section id="demo" style="background: var(--card-bg);">
+  <div class="container">
+    <div class="section-label">Try It Yourself</div>
+    <div class="section-title">Live Demo</div>
+
+    <div class="demo-grid">
+
+      <!-- Demo 1: Debt Settlement Calculator -->
+      <div class="demo-card">
+        <h3>💰 Debt Settlement Calculator</h3>
+        <p class="demo-desc">Mirrors the settlement logic from the Debt Collection Lakehouse — move the sliders to see how a full-and-final discount affects recovered cash.</p>
+
+        <div class="demo-field">
+          <label>Original Balance <span class="demo-value" id="balOut">R 10,000</span></label>
+          <input type="range" id="balInput" min="500" max="50000" step="500" value="10000">
+        </div>
+        <div class="demo-field">
+          <label>Settlement Discount <span class="demo-value" id="discOut">35%</span></label>
+          <input type="range" id="discInput" min="0" max="80" step="1" value="35">
+        </div>
+
+        <div class="demo-result">
+          <div class="demo-result-row"><span>Settled amount</span><span id="settledOut">R 6,500.00</span></div>
+          <div class="demo-result-row"><span>Discount given</span><span id="discAmtOut">R 3,500.00</span></div>
+          <div class="demo-result-row"><span>Recovery rate</span><span id="recoveryOut">65.0%</span></div>
+          <div class="demo-bar-track"><div class="demo-bar-fill" id="recoveryBar"></div></div>
+        </div>
+      </div>
+
+      <!-- Demo 2: PTP Kept Rate Simulator -->
+      <div class="demo-card">
+        <h3>📞 PTP Kept-Rate Simulator</h3>
+        <p class="demo-desc">The #1 collections health metric. Adjust the mix of promise-to-pay outcomes and watch the kept-rate and chart update live.</p>
+
+        <div class="demo-field">
+          <label>Kept Promises <span class="demo-value" id="keptOut">42</span></label>
+          <input type="range" id="keptInput" min="0" max="100" step="1" value="42">
+        </div>
+        <div class="demo-field">
+          <label>Broken Promises <span class="demo-value" id="brokenOut">58</span></label>
+          <input type="range" id="brokenInput" min="0" max="100" step="1" value="58">
+        </div>
+
+        <canvas id="ptpDonut" style="max-height:160px; margin-bottom:.8rem;"></canvas>
+
+        <div class="demo-result">
+          <div class="demo-result-row"><span>PTP kept rate</span><span id="ptpRateOut">42.0%</span></div>
+        </div>
+      </div>
+
+      <!-- Demo 3: SAP Migration Validator -->
+      <div class="demo-card">
+        <h3>☁️ SAP Migration Validator</h3>
+        <p class="demo-desc">The exact validation rules from the SAP → Azure migration pipelines. Pick a sample record and validate it.</p>
+
+        <select class="demo-select" id="recordSelect">
+          <option value="0">Case CASE000045213 — clean record</option>
+          <option value="1">Case CASE000098217 — missing facility</option>
+          <option value="2">Case CASE000071904 — discharge before admission</option>
+          <option value="3">Billing BILL000312887 — zero amount</option>
+          <option value="4">Billing BILL000455102 — orphan case reference</option>
+        </select>
+
+        <button class="demo-btn" id="validateBtn">Run Validation</button>
+
+        <div class="validation-result" id="validationResult"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATED CHARTS -->
+<section>
+  <div class="container">
+    <div class="section-label">Real Pipeline Output</div>
+    <div class="section-title">Data In Action</div>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Recovery Rate by Debt Age Bucket</h3>
+        <canvas id="recoveryChart"></canvas>
+        <div class="chart-source">Source: debt-collection-lakehouse Gold layer, 150K accounts</div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Monthly Cash Collected (ZAR)</h3>
+        <canvas id="cashChart"></canvas>
+        <div class="chart-source">Source: debt-collection-lakehouse, payments + settlements combined</div>
+      </div>
+
+      <div class="chart-card">
+        <h3>SAP Migration: Migrated vs Rejected</h3>
+        <canvas id="migrationChart"></canvas>
+        <div class="chart-source">Source: healthcare-sap-cloud-migration, 1.13M rows processed</div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Campaign ROAS Comparison</h3>
+        <canvas id="roasChart"></canvas>
+        <div class="chart-source">Source: marketing-analytics-pipeline, 4 campaigns / 30 days</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background: var(--card-bg);">
+  <div class="container">
+    <div class="section-label">Technical Expertise</div>
+    <div class="section-title">Core Skills</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">☁️ Cloud Platforms</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Azure Data Factory</span>
+          <span class="skill-chip">Synapse Analytics</span>
+          <span class="skill-chip">Databricks</span>
+          <span class="skill-chip">Data Lake Storage</span>
+          <span class="skill-chip">AWS (S3, Glue, Redshift)</span>
+          <span class="skill-chip">GCP / BigQuery</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">🗄️ Databases & Warehousing</div>
+        <div class="skill-chips">
+          <span class="skill-chip">SQL Server</span>
+          <span class="skill-chip">SSIS</span>
+          <span class="skill-chip">Snowflake</span>
+          <span class="skill-chip">Redshift</span>
+          <span class="skill-chip">BigQuery</span>
+          <span class="skill-chip">Azure SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">⌨️ Languages</div>
+        <div class="skill-chips">
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">Scala</span>
+          <span class="skill-chip">DAX</span>
+          <span class="skill-chip">R</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">📊 BI & Analytics</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Power BI</span>
+          <span class="skill-chip">Tableau</span>
+          <span class="skill-chip">Looker</span>
+          <span class="skill-chip">KPI Design</span>
+          <span class="skill-chip">Executive Reporting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">⚙️ DevOps & Automation</div>
+        <div class="skill-chips">
+          <span class="skill-chip">GitHub Actions</span>
+          <span class="skill-chip">CI/CD</span>
+          <span class="skill-chip">Terraform</span>
+          <span class="skill-chip">Airflow</span>
+          <span class="skill-chip">dbt</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">🏛️ Data Engineering</div>
+        <div class="skill-chips">
+          <span class="skill-chip">ETL / ELT</span>
+          <span class="skill-chip">Data Modelling</span>
+          <span class="skill-chip">SCD Type 2</span>
+          <span class="skill-chip">Data Governance</span>
+          <span class="skill-chip">Reconciliations</span>
+          <span class="skill-chip">Audit Compliance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career History</div>
+    <div class="section-title">Experience</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="tl-company">Rand Merchant Bank (RMB)</div>
+        <div class="tl-role">Senior Data Engineer – Global Markets</div>
+        <div class="tl-date">Mar 2025 – Present</div>
+        <div class="tl-desc">Finance data products in the data mesh (GL, sub-ledger, postings, reconciliations). Source-to-GL lineage, dbt-style SCD2, audit-ready control evidence.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="tl-company">Ison Xperiences</div>
+        <div class="tl-role">Senior Data Engineer</div>
+        <div class="tl-date">Jun 2024 – Mar 2025</div>
+        <div class="tl-desc">Azure Data Factory, Synapse, Databricks pipelines for advanced analytics and ML. POPIA compliance, CI/CD automation.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="tl-company">National Treasury (South Africa)</div>
+        <div class="tl-role">Senior Data & Information Specialist</div>
+        <div class="tl-date">Jan 2023 – Jun 2024</div>
+        <div class="tl-desc">Enterprise Data Warehouse (SQL Server, SSIS, Azure SQL) consolidating government financial data. Reduced audit preparation time by 35%.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="tl-company">Arena Holdings</div>
+        <div class="tl-role">Business Intelligence Analyst</div>
+        <div class="tl-date">Jan 2022 – Jan 2023</div>
+        <div class="tl-desc">Unified Google Ads, GA360, and Salesforce. Reduced reporting turnaround from 2 days to under 2 hours.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="tl-company">GUUD Mobility</div>
+        <div class="tl-role">Business Intelligence Analyst</div>
+        <div class="tl-date">Jan 2021 – Dec 2021</div>
+        <div class="tl-desc">Fleet telematics KPIs: fuel efficiency, utilisation, maintenance compliance, driver behaviour. Power BI dashboards for operations and executive teams.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="tl-company">Experian South Africa</div>
+        <div class="tl-role">Data Analyst</div>
+        <div class="tl-date">Mar 2018 – Dec 2020</div>
+        <div class="tl-desc">Migrated on-prem SQL Server warehouses to AWS. Built ETL pipelines with Glue, Lambda, SSIS, and Informatica.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section style="background: var(--card-bg);">
+  <div class="container">
+    <div class="section-label">Qualifications</div>
+    <div class="section-title">Certifications</div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-name">AWS Certified Solutions Architect – Associate</div><div class="cert-year">2024</div></div>
+      <div class="cert-card"><div class="cert-name">Advanced Diploma: Data Science & R</div><div class="cert-year">2023</div></div>
+      <div class="cert-card"><div class="cert-name">Microsoft Power BI Diploma</div><div class="cert-year">2022</div></div>
+      <div class="cert-card"><div class="cert-name">Data Analysis with Python</div><div class="cert-year">2021</div></div>
+      <div class="cert-card"><div class="cert-name">MySQL & Statistics for Data Analysis</div><div class="cert-year">2021</div></div>
+      <div class="cert-card"><div class="cert-name">Project Management Diploma</div><div class="cert-year">2020</div></div>
+      <div class="cert-card"><div class="cert-name">GDPR & POPIA Compliance</div><div class="cert-year">2019</div></div>
+      <div class="cert-card"><div class="cert-name">Generic Management NQF Level 6</div><div class="cert-year">—</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-label">Get in touch</div>
+    <div class="section-title">Contact</div>
+    <p>Open to senior data engineering roles — particularly in banking, fintech, regulated environments, and platform-scale data infrastructure.</p>
+    <div class="contact-links">
+      <a href="mailto:andiswacebekhulu1@gmail.com" class="contact-link">✉️ andiswacebekhulu1@gmail.com</a>
+      <a href="https://github.com/AndiswaMatai" class="contact-link" target="_blank">⬡ GitHub</a>
+      <a href="tel:0606817777" class="contact-link">📞 060 681 7777</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built by Andiswa Matai · Roodepoort, South Africa · Code 10 Driver's License
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+// ───────────────────────── Project Filter ─────────────────────────
+(function () {
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+  const emptyState = document.getElementById('emptyState');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.sector === filter;
+        card.classList.toggle('hidden', !match);
+        if (match) visibleCount++;
+      });
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  });
+})();
+
+// ───────────────────────── Demo 1: Settlement Calculator ─────────────────────────
+(function () {
+  const balInput = document.getElementById('balInput');
+  const discInput = document.getElementById('discInput');
+  const balOut = document.getElementById('balOut');
+  const discOut = document.getElementById('discOut');
+  const settledOut = document.getElementById('settledOut');
+  const discAmtOut = document.getElementById('discAmtOut');
+  const recoveryOut = document.getElementById('recoveryOut');
+  const recoveryBar = document.getElementById('recoveryBar');
+
+  const fmtR = n => 'R ' + n.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  function update() {
+    const balance = parseFloat(balInput.value);
+    const discountPct = parseFloat(discInput.value) / 100;
+    const discountAmt = balance * discountPct;
+    const settled = balance - discountAmt;
+    const recoveryRate = (1 - discountPct) * 100;
+
+    balOut.textContent = fmtR(balance).replace('.00', '');
+    discOut.textContent = discInput.value + '%';
+    settledOut.textContent = fmtR(settled);
+    discAmtOut.textContent = fmtR(discountAmt);
+    recoveryOut.textContent = recoveryRate.toFixed(1) + '%';
+    recoveryBar.style.width = recoveryRate + '%';
+  }
+
+  balInput.addEventListener('input', update);
+  discInput.addEventListener('input', update);
+  update();
+})();
+
+// ───────────────────────── Demo 2: PTP Kept-Rate Simulator ─────────────────────────
+(function () {
+  const keptInput = document.getElementById('keptInput');
+  const brokenInput = document.getElementById('brokenInput');
+  const keptOut = document.getElementById('keptOut');
+  const brokenOut = document.getElementById('brokenOut');
+  const ptpRateOut = document.getElementById('ptpRateOut');
+
+  const ctx = document.getElementById('ptpDonut').getContext('2d');
+  const donut = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Kept', 'Broken'],
+      datasets: [{
+        data: [42, 58],
+        backgroundColor: ['#2E75B6', '#E8A33D'],
+        borderWidth: 0,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+      animation: { duration: 400 },
+    },
+  });
+
+  function update() {
+    const kept = parseFloat(keptInput.value);
+    const broken = parseFloat(brokenInput.value);
+    const total = kept + broken;
+    const rate = total > 0 ? (kept / total * 100) : 0;
+
+    keptOut.textContent = kept;
+    brokenOut.textContent = broken;
+    ptpRateOut.textContent = rate.toFixed(1) + '%';
+
+    donut.data.datasets[0].data = [kept, broken];
+    donut.update();
+  }
+
+  keptInput.addEventListener('input', update);
+  brokenInput.addEventListener('input', update);
+  update();
+})();
+
+// ───────────────────────── Demo 3: SAP Migration Validator ─────────────────────────
+(function () {
+  const records = [
+    {
+      label: 'CASE000045213', valid: true,
+      detail: 'Facility: Chris Hani Baragwanath · Admission: 2026-02-14 · Discharge: 2026-02-18',
+      checks: ['✓ Facility present', '✓ Discharge date ≥ admission date', '✓ Patient reference resolves'],
+    },
+    {
+      label: 'CASE000098217', valid: false,
+      detail: 'Facility: (blank) · Admission: 2026-03-02 · Discharge: 2026-03-05',
+      checks: ['✗ Facility is missing — record rejected', '✓ Discharge date ≥ admission date', '✓ Patient reference resolves'],
+    },
+    {
+      label: 'CASE000071904', valid: false,
+      detail: 'Facility: Tygerberg · Admission: 2026-04-10 · Discharge: 2026-04-05',
+      checks: ['✓ Facility present', '✗ Discharge date is before admission date — record rejected', '✓ Patient reference resolves'],
+    },
+    {
+      label: 'BILL000312887', valid: false,
+      detail: 'Case: CASE000033410 · Category: Pharmacy · Amount: R 0.00',
+      checks: ['✓ Case reference resolves', '✗ Billing amount is zero — record rejected'],
+    },
+    {
+      label: 'BILL000455102', valid: false,
+      detail: 'Case: CASE900000017 · Category: Theatre Fee · Amount: R 4,250.00',
+      checks: ['✗ Case reference does not exist in validated case set — orphan record rejected', '✓ Billing amount is positive'],
+    },
+  ];
+
+  const select = document.getElementById('recordSelect');
+  const btn = document.getElementById('validateBtn');
+  const result = document.getElementById('validationResult');
+
+  btn.addEventListener('click', () => {
+    const rec = records[parseInt(select.value, 10)];
+    result.className = 'validation-result ' + (rec.valid ? 'validation-pass' : 'validation-fail');
+    result.style.display = 'block';
+    result.innerHTML =
+      '<strong>' + (rec.valid ? '✓ PASSED — migrated to Azure' : '✗ REJECTED — quarantined') + '</strong><br>' +
+      '<span style="opacity:.85; font-size:.78rem;">' + rec.detail + '</span><br><br>' +
+      rec.checks.join('<br>');
+  });
+})();
+
+// ───────────────────────── Animated Charts (scroll-triggered) ─────────────────────────
+(function () {
+  Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = '#5a6272';
+
+  const recoveryCtx = document.getElementById('recoveryChart').getContext('2d');
+  new Chart(recoveryCtx, {
+    type: 'bar',
+    data: {
+      labels: ['0-30', '31-60', '61-90', '91-180', '181-365', '365+'],
+      datasets: [{
+        label: 'Avg recovery %',
+        data: [24.1, 26.8, 27.1, 27.5, 27.4, 27.3],
+        backgroundColor: '#2E75B6',
+        borderRadius: 4,
+      }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { callback: v => v + '%' } } },
+    },
+  });
+
+  const cashCtx = document.getElementById('cashChart').getContext('2d');
+  new Chart(cashCtx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Cash collected (R)',
+        data: [14200000, 15800000, 16100000, 17400000, 18900000, 19600000],
+        borderColor: '#2E75B6', backgroundColor: 'rgba(46,117,182,.12)',
+        fill: true, tension: 0.35, pointRadius: 3,
+      }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { ticks: { callback: v => 'R' + (v / 1e6).toFixed(0) + 'M' } } },
+    },
+  });
+
+  const migrationCtx = document.getElementById('migrationChart').getContext('2d');
+  new Chart(migrationCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Patients', 'Cases', 'Billing', 'Materials'],
+      datasets: [
+        { label: 'Migrated', data: [80000, 219120, 516357, 308765], backgroundColor: '#2E75B6', borderRadius: 4 },
+        { label: 'Rejected', data: [0, 880, 3643, 1235], backgroundColor: '#E8A33D', borderRadius: 4 },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: v => (v / 1000) + 'K' } } },
+      plugins: { legend: { position: 'bottom' } },
+    },
+  });
+
+  const roasCtx = document.getElementById('roasChart').getContext('2d');
+  new Chart(roasCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Spring Subscriptions', 'Brand Awareness Q2', 'New Market Launch', 'Retargeting'],
+      datasets: [{
+        label: 'ROAS (x)',
+        data: [1.22, 1.10, 1.18, 1.04],
+        backgroundColor: ['#2E75B6', '#3d9be9', '#7ab8e8', '#a9d2f0'],
+        borderRadius: 4,
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { x: { ticks: { callback: v => v + 'x' } } },
+    },
+  });
+
+  // Fade/slide charts into view on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.chart-card').forEach(card => observer.observe(card));
+})();
+</script>
+</body>
+</html>
