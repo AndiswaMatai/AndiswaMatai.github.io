@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="banner.png" alt="Andiswa Matai - Senior Data Engineer & Lakehouse Architect" width="100%">
-</p>
-
 # 👨‍💻 Andiswa Matai | Senior Data Engineer · Lakehouse Architect
 
 ![Azure](https://img.shields.io/badge/Cloud-Azure-blue?logo=microsoftazure)
