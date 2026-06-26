@@ -11,49 +11,55 @@
 ---
 
 ## 🚀 About Me
-I design and build **enterprise-scale data platforms** for regulated industries like Banking, Healthcare, Retail, and Debt Collection — turning complex systems into measurable business outcomes.  
 
----
-
-## ⭐ Flagship Platforms
-These are my signature, end-to-end repositories — **production-ready architectures** showcasing PySpark pipelines, Delta Lake, CI/CD, monitoring, and cost optimization.
-
-| Repo | Cloud | What it demonstrates | Business Impact |
-|------|-------|----------------------|-----------------|
-| [Azure Fabric Retail Platform](https://github.com/AndiswaMatai/azure-fabric-retail-platform) | Azure / Microsoft Fabric | ADF → Databricks Medallion notebooks → Fabric DirectLake → Power BI. Terraform IaC, Azure Monitor alerting, spot/lifecycle cost optimization, full CI/CD. | Unified retail analytics, improved forecasting accuracy by 30%, reduced stockouts by 20%. |
-| [AWS Customer360 Platform](https://github.com/AndiswaMatai/aws-customer360-platform) | AWS | Kinesis + Lambda (real-time) and Glue + Step Functions (batch) converging into Redshift Serverless. Terraform IaC, CloudWatch alerting, S3 tiering + job bookmarking cost optimization. | Delivered 360° customer view, enabling personalized campaigns and boosting retention by 15%. |
-
----
-
-## 📊 Sector Projects
-| Repo | Sector | What it demonstrates | Business Impact |
-|------|--------|----------------------|-----------------|
-| [Finance Ledger Reconciliation](https://github.com/AndiswaMatai/finance-ledger-reconciliation-platform) | Banking | PySpark sub-ledger → GL validation, Type 2 SCD modelling, automated exception detection, audit-ready reporting. | Reduced reconciliation time by 70%, ensured regulatory-grade financial control. |
-| [Transaction Monitoring Pipeline](https://github.com/AndiswaMatai/transaction-monitoring-pipeline) | Fintech | PySpark event-driven ingestion, Kafka-style deduplication, pluggable fraud rules engine. | Real-time fraud detection, reduced financial losses. |
-| [Marketing Analytics Lakehouse](https://github.com/AndiswaMatai/marketing-analytics-pipeline) | Advertising | PySpark Ads + GA360 + Salesforce unification, CTR/CPA/ROAS/churn KPIs, automated reporting. | Boosted campaign efficiency by 20%, improved ROI visibility. |
-| [Fleet Operations Analytics](https://github.com/AndiswaMatai/fleet-operations-analytics) | Logistics | PySpark telematics KPIs, fuel efficiency, maintenance compliance, driver behaviour alerts. | Reduced downtime by 15%, optimised fuel usage. |
-| [Debt Collection Lakehouse](https://github.com/AndiswaMatai/debt-collection-lakehouse) | Debt Collection | Microsoft Fabric medallion pipeline, 1.15M+ rows, PTP/recovery/settle KPIs, PySpark chunked processing. | Improved recovery tracking, scaled debt analytics. |
-| [Healthcare SAP Cloud Migration](https://github.com/AndiswaMatai/healthcare-sap-cloud-migration) | Healthcare | PySpark SAP IS-H → Azure migration, 1.13M+ rows, chunked extract-validate-transform. | Increased reliability, reduced infrastructure costs by 20%. |
-| [Enterprise SAP Lakehouse Migration](https://github.com/AndiswaMatai/enterprise-sap-lakehouse-migration-platform) | Healthcare | PySpark SAP-to-Azure Lakehouse migration with Bronze → Silver → Gold transformations, lineage, auditability, reconciliation controls. | Delivered compliant healthcare data platform, ensured audit readiness. |
-
----
-
-## 🛠️ Core Stack
-- **Cloud:** Azure · AWS · GCP  
-- **Data:** PySpark · Delta Lake · SQL Server · Redshift · BigQuery · Snowflake  
-- **BI:** Power BI · DAX · Tableau · Looker  
-- **DevOps:** GitHub Actions · CI/CD · Terraform · Airflow  
-
----
-
-## 💰 Career Highlights
-- 📊 Finance & Governance — *Driving financial integrity*  
-- 🏥 Healthcare & Compliance — *Modernising healthcare with compliance-first design*  
-- 🛒 Retail & Customer Analytics — *Unlocking customer value at scale*  
-- 🚚 Operational Efficiency & Risk — *Optimising operations and reducing risk*  
-
----
-
-## 📬 Connect
-📧 Email: andiswacebekhulu1@gmail.com  
-📍 Location: Roodepoort, South Africa
+Designing and building enterprise-scale data platforms across Banking, Healthcare, Retail, and Fintech using Azure, AWS, and modern lakehouse architectures.
+🧠 Core Stack
+Cloud: Azure · AWS · GCP
+Data Engineering: PySpark · Delta Lake · SQL · Spark Structured Streaming
+BI & Analytics: Power BI · DAX · Tableau
+DevOps: Terraform · GitHub Actions · CI/CD · Airflow
+🚀 Featured Architectures (Hero Projects)
+🥇 Azure Fabric Retail Platform (Flagship)
+End-to-end modern data platform:
+ADF ingestion → Databricks Medallion architecture
+Fabric DirectLake semantic layer
+Terraform IaC + CI/CD pipelines
+Azure Monitor + cost optimization (spot & lifecycle policies)
+Impact:
+📈 +30% forecasting accuracy
+📉 -20% stockouts
+🥇 AWS Customer 360 Platform (Flagship)
+Real-time + batch unified architecture:
+Kinesis + Lambda streaming ingestion
+Glue + Step Functions batch processing
+Redshift Serverless serving layer
+Terraform infrastructure automation
+Impact:
+📊 360° customer view
+📈 +15% retention improvement
+🏦 Domain Engineering Projects
+Finance Ledger Reconciliation (Banking)
+Type 2 SCD + PySpark reconciliation engine
+Audit-ready GL matching + exception detection
+Impact: -70% reconciliation time
+Transaction Monitoring Pipeline (Fintech)
+Event-driven ingestion + rule-based fraud detection
+Real-time anomaly detection pipeline
+Healthcare SAP Migration
+SAP IS-H → Azure migration using PySpark
+Chunked processing + validation framework
+Impact: -20% infrastructure cost
+Enterprise Lakehouse Migration
+Bronze → Silver → Gold architecture
+Data lineage + reconciliation controls
+Audit-ready healthcare platform
+📊 Domain Experience
+🏦 Banking: Financial reconciliation & regulatory reporting
+🏥 Healthcare: SAP migrations & compliance systems
+🛒 Retail: Customer analytics & forecasting systems
+🚚 Logistics: Fleet optimisation & operational intelligence
+📬 Connect
+📧 Email: andiswacebekhulu1@gmail.com
+📍 Roodepoort, South Africa
+🔗 LinkedIn: LinkedIn
+💻 GitHub: GitHub
