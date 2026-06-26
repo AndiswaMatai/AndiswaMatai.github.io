@@ -30,8 +30,8 @@ Terraform IaC + CI/CD pipelines
 Azure Monitor + cost optimization (spot & lifecycle policies)
 
  Impact:
+ 
 📈 +30% forecasting accuracy
-
 📉 -20% stockouts
 
 ## 🥇 AWS Customer 360 Platform (Flagship)
@@ -42,8 +42,8 @@ Redshift Serverless serving layer
 Terraform infrastructure automation
 
  Impact:
+ 
 📊 360° customer view
-
 📈 +15% retention improvement
 
 ## 🏦 Domain Engineering Projects
@@ -79,7 +79,8 @@ Audit-ready healthcare platform
 
 🚚 Logistics: Fleet optimisation & operational intelligence
 
-📬 Connect
+## 📬 Connect
+
 📧 Email: andiswacebekhulu1@gmail.com
 
 📍 Roodepoort, South Africa
