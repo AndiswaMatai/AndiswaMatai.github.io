@@ -42,8 +42,9 @@ Terraform infrastructure automation
 📊 360° customer view
 📈 +15% retention improvement
 
-🏦 Domain Engineering Projects
-Finance Ledger Reconciliation (Banking)
+## 🏦 Domain Engineering Projects
+
+## Finance Ledger Reconciliation (Banking)
 Type 2 SCD + PySpark reconciliation engine
 Audit-ready GL matching + exception detection
 ## Impact: -70% reconciliation time
@@ -64,8 +65,11 @@ Audit-ready healthcare platform
 
 ## 📊 Domain Experience
 🏦 Banking: Financial reconciliation & regulatory reporting
+
 🏥 Healthcare: SAP migrations & compliance systems
+
 🛒 Retail: Customer analytics & forecasting systems
+
 🚚 Logistics: Fleet optimisation & operational intelligence
 
 📬 Connect
