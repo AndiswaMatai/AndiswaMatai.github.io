@@ -28,6 +28,7 @@ ADF ingestion → Databricks Medallion architecture
 Fabric DirectLake semantic layer
 Terraform IaC + CI/CD pipelines
 Azure Monitor + cost optimization (spot & lifecycle policies)
+
  Impact:
 📈 +30% forecasting accuracy
 📉 -20% stockouts
@@ -38,6 +39,7 @@ Kinesis + Lambda streaming ingestion
 Glue + Step Functions batch processing
 Redshift Serverless serving layer
 Terraform infrastructure automation
+
  Impact:
 📊 360° customer view
 📈 +15% retention improvement
@@ -47,6 +49,7 @@ Terraform infrastructure automation
 ## Finance Ledger Reconciliation (Banking)
 Type 2 SCD + PySpark reconciliation engine
 Audit-ready GL matching + exception detection
+
  Impact: -70% reconciliation time
 
 ## Transaction Monitoring Pipeline (Fintech)
@@ -55,7 +58,9 @@ Real-time anomaly detection pipeline
 
 ## Healthcare SAP Migration
 SAP IS-H → Azure migration using PySpark
-Chunked processing + validation framework    Impact: -20% infrastructure cost
+Chunked processing + validation framework 
+
+Impact: -20% infrastructure cost
 
 ## Enterprise Lakehouse Migration
 Bronze → Silver → Gold architecture
