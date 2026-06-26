@@ -33,7 +33,7 @@ Infrastructure as Code (Terraform)
 Azure Monitor + alerting framework
 Cost optimisation (spot + lifecycle scaling)
 
-# Business Impact:
+## Business Impact:
 Unified retail + loyalty data across channels → single source of truth for revenue and margin analytics
 
 ## 🥇 AWS Customer 360 Platform
@@ -43,7 +43,7 @@ Streaming ingestion (Kinesis + Lambda)
 Batch processing (Glue + Step Functions)
 Serverless analytics (Redshift)
 
-# Business Impact:
+## Business Impact:
 Enabled full customer behaviour visibility → improved CRM targeting and retention decisions
 📊 Engineering Systems (Domain Projects)
 
@@ -78,29 +78,42 @@ Impact: Replaced manual reporting with automated KPI generation
 
 ## 🏆 Key Achievements
 Reduced reporting turnaround from 2 days → 2 hours
-Cut audit preparation effort by 35%
-Migrated 1.13M+ healthcare records with zero silent data loss
-Processed 1.15M+ financial records in single-run pipelines
-Eliminated manual reconciliation through automated break detection
-Optimised Azure infrastructure saving R76,000+ annually
-Achieved zero duplicate transaction processing in streaming pipeline
+
+Cut audit preparation effort by 35%.
+
+Migrated 1.13M+ healthcare records with zero silent data loss.
+
+Processed 1.15M+ financial records in single-run pipelines.
+
+Eliminated manual reconciliation through automated break detection.
+
+Optimised Azure infrastructure saving R76,000+ annually.
+
+Achieved zero duplicate transaction processing in streaming pipeline.
 
 ---
 
 ## 🛠️ Core Stack
 
 Cloud: Azure (ADF, Databricks, Synapse, ADLS, Fabric) · AWS · GCP
+
 Data: PySpark · Delta Lake · SQL · Scala
+
 Databases: SQL Server · Snowflake · Redshift · BigQuery
+
 BI: Power BI · DAX · Tableau · Looker
+
 DevOps: Terraform · GitHub Actions · CI/CD · Airflow
 
 ---
 ## 🧵 Certifications
 
 AWS Solutions Architect – Associate
+
 Microsoft Power BI
+
 Data Science (Python & R)
+
 GDPR & POPIA Compliance
 
 ## 📬 Connect
