@@ -10,81 +10,105 @@
 
 ---
 
-## 🚀 About Me
+# 🚀 About Me
 
-Designing and building enterprise-scale data platforms across Banking, Healthcare, Retail, and Fintech using Azure, AWS, and modern lakehouse architectures.
+I design and build enterprise-scale data platforms for regulated industries such as Banking and Healthcare, transforming fragmented systems into auditable, scalable, and cost-efficient data products.
 
-## 🧠 Core Stack
-Cloud: Azure · AWS · GCP
-Data Engineering: PySpark · Delta Lake · SQL · Spark Structured Streaming
-BI & Analytics: Power BI · DAX · Tableau
+# 🔹 Impact Highlights
+
+🏦 Global Markets (RMB): Built finance reconciliation data products enabling audit-ready reporting and regulatory traceability
+
+🏥 Healthcare Modernisation: Migrated SAP IS-H systems to Azure, processing 1.13M+ records with zero silent data loss
+
+🏗️ Enterprise Architecture: Delivered Medallion (Bronze → Silver → Gold) lakehouse platforms with CI/CD and observability
+
+📊 Governance & Quality: Implemented data quality frameworks and pipeline-level validation for mission-critical systems
+
+# ⭐ Flagship Platforms (Production Systems)
+
+## 🥇 Azure Fabric Retail Platform
+Azure · Databricks · Fabric · Terraform
+ADF → Databricks Medallion → Fabric DirectLake → Power BI
+Infrastructure as Code (Terraform)
+Azure Monitor + alerting framework
+Cost optimisation (spot + lifecycle scaling)
+
+# Business Impact:
+Unified retail + loyalty data across channels → single source of truth for revenue and margin analytics
+
+## 🥇 AWS Customer 360 Platform
+AWS · Kinesis · Lambda · Glue · Redshift
+Real-time + batch unified architecture:
+Streaming ingestion (Kinesis + Lambda)
+Batch processing (Glue + Step Functions)
+Serverless analytics (Redshift)
+
+# Business Impact:
+Enabled full customer behaviour visibility → improved CRM targeting and retention decisions
+📊 Engineering Systems (Domain Projects)
+
+## 🏦 Finance Reconciliation Engine
+Databricks · PySpark · Delta Lake
+Cash vs RADA reconciliation system:
+SHA-256 composite business keys
+Broadcast joins for optimisation
+MATCHED / UNMATCHED / NEW / CLEARED classification
+Impact: Eliminated manual reconciliation workflows and generated audit-ready outputs daily
+
+## 🔐 Transaction Monitoring Pipeline
+Kafka-style ingestion + fraud rules engine
+Deduplication logic for event streams
+Pluggable rule-based anomaly detection
+Impact: Prevented duplicate processing in real-time transaction flows
+
+## 🏥 Healthcare SAP Migration
+SAP IS-H → Azure
+Chunked ETL processing
+Validation + rejection logging
+POPIA-compliant migration framework
+Impact: Migrated 1.13M+ records with zero silent failures
+
+## 🧾 Debt Collection Lakehouse
+Microsoft Fabric · PySpark
+1.15M+ records processed per run
+PTP, recovery, settlement KPI modelling
+Impact: Replaced manual reporting with automated KPI generation
+
+--- 
+
+## 🏆 Key Achievements
+Reduced reporting turnaround from 2 days → 2 hours
+Cut audit preparation effort by 35%
+Migrated 1.13M+ healthcare records with zero silent data loss
+Processed 1.15M+ financial records in single-run pipelines
+Eliminated manual reconciliation through automated break detection
+Optimised Azure infrastructure saving R76,000+ annually
+Achieved zero duplicate transaction processing in streaming pipeline
+
+---
+
+## 🛠️ Core Stack
+
+Cloud: Azure (ADF, Databricks, Synapse, ADLS, Fabric) · AWS · GCP
+Data: PySpark · Delta Lake · SQL · Scala
+Databases: SQL Server · Snowflake · Redshift · BigQuery
+BI: Power BI · DAX · Tableau · Looker
 DevOps: Terraform · GitHub Actions · CI/CD · Airflow
 
-## 🚀 Featured Architectures (Hero Projects)
+---
+## 🧵 Certifications
 
-## 🥇 Azure Fabric Retail Platform (Flagship)
-End-to-end modern data platform:
-ADF ingestion → Databricks Medallion architecture
-Fabric DirectLake semantic layer
-Terraform IaC + CI/CD pipelines
-Azure Monitor + cost optimization (spot & lifecycle policies)
-
- Impact:
- 
-📈 +30% forecasting accuracy
-📉 -20% stockouts
-
-## 🥇 AWS Customer 360 Platform (Flagship)
-Real-time + batch unified architecture:
-Kinesis + Lambda streaming ingestion
-Glue + Step Functions batch processing
-Redshift Serverless serving layer
-Terraform infrastructure automation
-
- Impact:
- 
-📊 360° customer view
-📈 +15% retention improvement
-
-## 🏦 Domain Engineering Projects
-
-## Finance Ledger Reconciliation (Banking)
-Type 2 SCD + PySpark reconciliation engine
-Audit-ready GL matching + exception detection
-
- Impact: -70% reconciliation time
-
-## Transaction Monitoring Pipeline (Fintech)
-Event-driven ingestion + rule-based fraud detection
-Real-time anomaly detection pipeline
-
-## Healthcare SAP Migration
-SAP IS-H → Azure migration using PySpark
-Chunked processing + validation framework 
-
-Impact: -20% infrastructure cost
-
-## Enterprise Lakehouse Migration
-Bronze → Silver → Gold architecture
-Data lineage + reconciliation controls
-
-Audit-ready healthcare platform
-
-## 📊 Domain Experience
-🏦 Banking: Financial reconciliation & regulatory reporting
-
-🏥 Healthcare: SAP migrations & compliance systems
-
-🛒 Retail: Customer analytics & forecasting systems
-
-🚚 Logistics: Fleet optimisation & operational intelligence
+AWS Solutions Architect – Associate
+Microsoft Power BI
+Data Science (Python & R)
+GDPR & POPIA Compliance
 
 ## 📬 Connect
 
-📧 Email: andiswacebekhulu1@gmail.com
+📧 andiswacebekhulu1@gmail.com
 
 📍 Roodepoort, South Africa
 
-🔗 LinkedIn: LinkedIn
+💼 LinkedIn: LinkedIn
 
 💻 GitHub: GitHub
