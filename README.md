@@ -53,42 +53,45 @@ Cash vs RADA reconciliation system:
 SHA-256 composite business keys
 Broadcast joins for optimisation
 MATCHED / UNMATCHED / NEW / CLEARED classification
-Impact: Eliminated manual reconciliation workflows and generated audit-ready outputs daily
+
+## Impact
+Eliminated manual reconciliation workflows and generated audit-ready outputs daily
 
 ## 🔐 Transaction Monitoring Pipeline
 Kafka-style ingestion + fraud rules engine
 Deduplication logic for event streams
 Pluggable rule-based anomaly detection
-Impact: Prevented duplicate processing in real-time transaction flows
+
+## Impact
+Prevented duplicate processing in real-time transaction flows
 
 ## 🏥 Healthcare SAP Migration
 SAP IS-H → Azure
 Chunked ETL processing
 Validation + rejection logging
 POPIA-compliant migration framework
-Impact: Migrated 1.13M+ records with zero silent failures
+
+
+## Impact
+Migrated 1.13M+ records with zero silent failures
 
 ## 🧾 Debt Collection Lakehouse
 Microsoft Fabric · PySpark
 1.15M+ records processed per run
 PTP, recovery, settlement KPI modelling
-Impact: Replaced manual reporting with automated KPI generation
+
+## Impact
+Replaced manual reporting with automated KPI generation
 
 --- 
 
 ## 🏆 Key Achievements
 Reduced reporting turnaround from 2 days → 2 hours
-
 Cut audit preparation effort by 35%.
-
 Migrated 1.13M+ healthcare records with zero silent data loss.
-
 Processed 1.15M+ financial records in single-run pipelines.
-
 Eliminated manual reconciliation through automated break detection.
-
 Optimised Azure infrastructure saving R76,000+ annually.
-
 Achieved zero duplicate transaction processing in streaming pipeline.
 
 ---
